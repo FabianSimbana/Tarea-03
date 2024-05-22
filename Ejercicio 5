@@ -1,0 +1,51 @@
+def calcular_suma(a, b):
+    suma_total = 0
+    num_multiplicaciones = 0
+    num_sumas = 0
+
+    for i in range(len(a)):
+        for j in range(i+1):
+            suma_total += a[i] * b[j]
+            num_multiplicaciones += 1
+            num_sumas += 1
+
+    return suma_total, num_multiplicaciones, num_sumas
+
+def calcular_suma_optimizada(a, b):
+    suma_total = 0
+    num_multiplicaciones = 0
+    num_sumas = 0
+
+    for i in range(len(a)):
+        suma_temporal = sum(b[:i+1])  # Sumamos solo los elementos de b hasta el índice i
+        suma_total += a[i] * suma_temporal
+        num_multiplicaciones += 1
+        num_sumas += len(b[:i+1])  # Contamos el número de sumas realizadas para la suma de b
+
+    return suma_total, num_multiplicaciones, num_sumas
+
+# Ejemplo calcular_suma
+a = [1, 2, 3, 4]
+b = [5, 6, 7, 8]
+suma, multiplicaciones, sumas = calcular_suma(a, b)
+print("La suma total es:", suma)
+print("Número de multiplicaciones:", multiplicaciones)
+print("Número de sumas:", sumas)
+
+La suma total es: 185
+Número de multiplicaciones: 10
+Número de sumas: 10
+
+
+# Ejemplo calcular_suma optimizada
+a = [1, 2, 3, 4]
+b = [5, 6, 7, 8]
+suma, multiplicaciones, sumas = calcular_suma_optimizada(a, b)
+print("La suma total es:", suma)
+print("Número de multiplicaciones:", multiplicaciones)
+print("Número de sumas:", sumas)
+
+
+La suma total es: 185
+Número de multiplicaciones: 4
+Número de sumas: 10

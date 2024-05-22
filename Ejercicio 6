@@ -1,0 +1,26 @@
+def sumarSerieInversa(n: int, x: float) -> float:
+    suma = 0
+    for i in range(n, 0, -1):
+        suma += x ** i
+    return suma
+
+# Ejemplo de uso de sumarSerieInversa
+n = 5
+x = 2
+resultado = sumarSerieInversa(n, x)
+print("La suma de la serie en orden inverso es:", resultado)
+
+### Explicación del Pseudocódigo y Código
+
+1. **Entrada**: Se reciben dos parámetros, `n` (entero) que representa el número de términos en la serie, y `x` (real) que es la base de los exponentes.
+2. **Inicialización**: Se inicializa la variable `suma` en 0.
+3. **Bucle**: Se recorre un bucle desde `n` hasta 1 (incluyendo 1) en decrementos de 1.
+    - En cada iteración, se calcula \(x^i\) y se agrega a `suma`.
+4. **Salida**: Una vez completado el bucle, se retorna el valor de `suma`.
+
+### Ejemplo de Uso en Python
+
+El código en Python implementa el pseudocódigo, calculando la suma de \(x^i\) en orden inverso, desde `n` hasta 1. En el ejemplo, se calcula la suma para \(n = 5\) y \(x = 2\):
+
+- Para \(n = 5\) y \(x = 2\), la serie es \(2^5 + 2^4 + 2^3 + 2^2 + 2^1\).
+- La función `sumarSerieInversa` computará esta suma y retornará el resultado.

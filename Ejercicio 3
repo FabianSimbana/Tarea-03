@@ -1,0 +1,36 @@
+import math
+
+# Función para calcular arctan(x) usando la serie de Taylor
+def arctan(x, terms):
+    arctan_sum = 0
+    for n in range(terms):
+        term = ((-1) ** n) * (x ** (2 * n + 1)) / (2 * n + 1)
+        arctan_sum += term
+    return arctan_sum
+
+# Función para calcular pi usando la identidad dada y una cantidad de términos
+def calculate_pi(terms):
+    arctan_1_5 = arctan(1/5, terms)
+    arctan_1_239 = arctan(1/239, terms)
+    pi_approx = 4 * (4 * arctan_1_5 - arctan_1_239)
+    return pi_approx
+
+# Función para encontrar el número de términos necesarios para la precisión deseada
+def find_required_terms(precision=1e-3):
+    true_pi = math.pi
+    terms = 1
+    while True:
+        pi_approx = calculate_pi(terms)
+        if abs(pi_approx - true_pi) < precision:
+            break
+        terms += 1
+    return terms
+
+# Ejecución del código para encontrar el número de términos
+required_terms = find_required_terms()
+print(f"Se necesitan al menos {required_terms} términos para aproximar π dentro de {10**-3}.")
+
+# Calcular π usando el número requerido de términos
+pi_approx = calculate_pi(required_terms)
+print(f"π aproximado con {required_terms} términos: {pi_approx}")
+print(f"Diferencia con el valor real de π: {abs(math.pi - pi_approx)}")

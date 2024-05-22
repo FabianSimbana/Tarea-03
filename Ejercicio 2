@@ -1,0 +1,39 @@
+import math
+def arctanAprox(n):
+    sum = 0
+    for i in range(1,n+1):
+        num = (-1)**(i+1)
+        den = 2*i-1
+        sum += num/den
+    error = abs(4*sum-math.pi)
+    return error
+
+%%%%%%Ejecuciones a realizar literal a%%%%%%%%%%
+
+e1 = arctanAprox(5)
+print("El error absoluto es: "+format(e1, ".1E"))
+e2 = arctanAprox(10)
+print("El error absoluto es: "+format(e2, ".1E"))
+e3 = arctanAprox(50)
+print("El error absoluto es: "+format(e3, ".1E"))
+e4 = arctanAprox(100)
+print("El error absoluto es: "+format(e4, ".1E"))
+e5 = arctanAprox(1000)
+print("El error absoluto es: "+format(e5, ".1E"))
+
+%%%%%Resultados%%%%%%%%%%%%%
+
+El error absoluto es: 2.0E-01
+El error absoluto es: 1.0E-01
+El error absoluto es: 2.0E-02
+El error absoluto es: 1.0E-02
+El error absoluto es: 1.0E-03
+
+%%%%%%%%%%% Ejecución del literal b%%%%%%%%%%%%%
+
+e6 = arctanAprox(10000000000)
+print("El error absoluto es: "+format(e6, ".1E"))
+
+%%%%%Resultado%%%%%%%%%%%%
+
+El error absoluto es: 1.0E-10

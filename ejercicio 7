@@ -1,0 +1,35 @@
+import math
+def ec_2do_grado(a, b, c):
+  discriminante = b**2 - 4*a*c
+  if discriminante > 0:
+    # Dos raices diferentes
+    x1 = (-b + (math.sqrt(discriminante)))/2*a
+    x2 = (-b - (math.sqrt(discriminante)))/2*a
+
+    return x1, x2
+  elif discriminante == 0:
+    # Dos raices iguales
+    x = -b / (2*a)
+
+    return x, x
+  else:
+    # Raices complejas
+    parte_real = -b / (2*a)
+    parte_imaginaria = math.sqrt(abs(discriminante)) / (2*a)
+
+    x1 = complex(parte_real, parte_imaginaria)
+    x2 = complex(parte_real, -parte_imaginaria)
+
+    return x1, x2
+
+ec1 = ec_2do_grado(1, 6, 8)
+print('Raices diferentes:', ec1)
+ec2 = ec_2do_grado(1, -4, 4)
+print('Raíces iguales: ', ec2)
+ec3 = ec_2do_grado(2, 1, 2)
+print('Raice complejaz: ', ec3)
+
+Resultado de la ejecución:
+Raices diferentes: (-2.0, -4.0)
+Raíces iguales:  (2.0, 2.0)
+Raice complejaz:  ((-0.25+0.9682458365518543j), (-0.25-0.9682458365518543j))

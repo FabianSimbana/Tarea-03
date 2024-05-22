@@ -1,0 +1,37 @@
+Comparación de los Tres Algoritmos
+
+Algoritmo 1
+
+def Algoritmo_1(valores):
+    producto = 0
+    for x in valores:
+        producto *= 1/(x**2)
+    return producto
+
+valores_1a = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+print("Resultado del algoritmo 1:", Algoritmo_1(valores_1a))
+
+Algoritmo 2
+
+def Algoritmo_2(valores):
+    producto = 1
+    for x in valores:
+        producto *= (1/x**2)
+    return producto
+
+valores_1a = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+print("Resultado del algoritmo 2:", Algoritmo_2(valores_1a))
+
+Algoritmo 3
+
+def Algoritmo_3(valores):
+    producto = 1
+    for x in valores:
+        if x == 0:
+            producto = 0
+            return producto
+        producto *= (1/x**2)
+    return producto
+
+valores_1a = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+print("Resultado del algoritmo 3:", Algoritmo_3(valores_1a))
